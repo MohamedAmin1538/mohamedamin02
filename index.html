@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Ramdan</title>
+    <style>
+      .container-fluid{
+        background-color: black;
+        width: 100%;
+        height: 100vh;
+        background-image: url(—Pngtree—arabic\ lanterns\ free\ vector_6112384.png);
+        background-position: top;
+        background-size: 40%;
+        background-repeat: repeat-x;
+      }
+      @media screen and (max-width:600px) {
+        .container-fluid{
+          background-size: 70%;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid w-100">
+      <div class="row h-100 d-flex align-items-center">
+        <div class="d-flex flex-column h-75 justify-content-end">
+          <h1 class="text-light display-1 fw-normal  text-uppercase col-12 text-center">ramdan kareem</h1>
+          <div class="mt-5 container">
+            <div class=" display-3 fw-bold text-light text-center">
+              <span id="day" class="text-dark bg-light rounded borderd p-1"></span>
+              <span id="hour" class="text-dark bg-light rounded borderd p-1"></span>
+              <span id="min" class="text-dark bg-light rounded borderd p-1"></span>
+              <span id="sec" class="text-dark bg-light rounded borderd p-1"></span>
+              <audio src="Ibn-Al-Noor.mp3" autoplay loop></audio>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      setInterval(()=>{
+        let subday = document.getElementById("day")
+      let subhour = document.getElementById("hour")
+      let submin = document.getElementById("min")
+      let subsec = document.getElementById("sec")
+      let day = new Date().getTime()
+      let day2 = new Date("sat apr 2 2022 00:00:00 GMT+0200 (Eastern European Standard Time)").getTime()
+      let defrance = day2 - day
+      let days =Math.floor( defrance / (1000 * 60 * 60 * 24))
+      let hours = Math.floor((defrance % (1000*60*60*24)) / (1000*60*60))
+      let minutes = Math.floor((defrance % (1000*60*60))/(1000*60))
+      let second = Math.floor((defrance % (1000*60))/1000)
+      console.log(second)
+      subday.textContent =(days+"d")
+      subhour.textContent =(hours+"h")
+      submin.textContent =(minutes+"m")
+      subsec.textContent =(second+"s")
+      },1)
+      
+    </script>
+  </body>
+</html>
